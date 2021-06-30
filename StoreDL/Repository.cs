@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using StoreModels;
 namespace StoreDL 
 
 {
@@ -21,8 +22,8 @@ namespace StoreDL
             {
                 throw new Exception("File path is not valid.");
             }
-
-            return JsonSerializer.Deserialize<List<StoreModels.StoreFront>>(_filePath);
+            
+            return JsonSerializer.Deserialize<List<StoreModels.StoreFront>>(_jsonString);
          }
 
         public StoreModels.StoreFront getAStoreFront(StoreModels.StoreFront store)
