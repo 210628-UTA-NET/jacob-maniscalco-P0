@@ -1,44 +1,47 @@
 using System.Collections.Generic;
-public class Order {
 
-    private List<LineItems> _order;
-    private string _location;
-    private double _price;
+namespace StoreModels {
+    public class Order {
 
-    public Order()
-    { }
+        private List<LineItems> _order;
+        private string _location;
+        private double _price;
 
-    public List<LineItems> order 
-    {  
-        get
-        {
-            return _order;
-        } 
-        set
-        {
-            _order = value;
-        } 
-    }
-    public string location 
-    { 
-        get
-        {
-            return _location;
-        }  
-        set
-        {
-            _location = value;
-        } 
-    }
-    public double price 
-    { 
-        get
-        {
-            return _price;
-        }  
-        set
-        {
-            _price = value;
-        } 
+        public Order()
+        { }
+
+        public List<LineItems> order 
+        {  
+            get
+            {
+                return _order;
+            } 
+            set
+            {
+                _order = value;
+            } 
+        }
+        public string location 
+        { 
+            get
+            {
+                return _location;
+            }  
+            set
+            {
+                _location = value;
+            } 
+        }
+        public double price 
+        { 
+            get
+            {
+                return _price;
+            }  
+            set
+            {
+                _price = value;
+            } 
+        }
     }
 }
