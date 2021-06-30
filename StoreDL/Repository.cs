@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using StoreModels;
 namespace StoreDL 
 
 {
@@ -25,7 +24,6 @@ namespace StoreDL
             
             return JsonSerializer.Deserialize<List<StoreModels.StoreFront>>(_jsonString);
          }
-
         public StoreModels.StoreFront getAStoreFront(StoreModels.StoreFront store)
         { throw new System.NotImplementedException(); }
 
