@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace StoreModels {
@@ -53,6 +54,42 @@ namespace StoreModels {
             {
                 _orders = value;
             } 
+        }
+
+
+        public void displayStoreFrontInfo()
+        {
+            Console.WriteLine("----StoreFront Info----");
+            Console.WriteLine(this.name);
+            Console.WriteLine(this.address);
+            Console.WriteLine("----Inventory----");
+            foreach(LineItems item in this.inventory)
+            {
+                Console.WriteLine("----Item----");
+                Console.WriteLine(item.product.name);
+                Console.WriteLine(item.product.price);
+                Console.WriteLine(item.product.description);
+                Console.WriteLine("-------------");
+            }
+
+            Console.WriteLine("----Orders----");
+            foreach(Order order in this.orders)
+            {
+                int counter = 1;
+                Console.WriteLine("Order " + counter + " info:");
+                Console.WriteLine("Location: " + order.location);
+                Console.WriteLine("Price: " + order.price);
+                foreach(LineItems item in order.order)
+                {        
+                    Console.WriteLine("----Item----");
+                    Console.WriteLine(item.product.name);
+                    Console.WriteLine(item.product.price);
+                    Console.WriteLine(item.product.description);
+                    Console.WriteLine("-------------");
+                }
+
+                counter++;
+            }
         }
     }
 }

@@ -1,33 +1,33 @@
 [
     {
-        "Name": "Target",
-        "Address": "900 North Street",
-        "Inventory": [
+        "name": "Target",
+        "address": "900 North Street",
+        "inventory": [
             { 
-                "Product": {
-                    "Name": "Milk",
-                    "Price": 4.00,
-                    "Description": "2% Milk",
-                    "Category": "Dairy"
+                "product": {
+                    "name": "Milk",
+                    "price": 4.00,
+                    "description": "2% Milk",
+                    "category": "Dairy"
                 },
-                "Quantity": 20
+                "quantity": 20
             }
         ],
-        "Orders": [
+        "orders": [
             {
-                "Order": [
+                "order": [
                     {
-                        "Product": {
-                            "Name": "Milk",
-                            "Price": 4.00,
-                            "Description": "2% Milk",
-                            "Category": "Dairy"
+                        "product": {
+                            "name": "Milk",
+                            "price": 4.00,
+                            "description": "2% Milk",
+                            "category": "Dairy"
                         },
-                        "Quantity": 20
+                        "quantity": 20
                     }
                 ],
-                "Location": "901 North Street",
-                "Price": 19.99
+                "location": "901 North Street",
+                "price": 19.99
             }
         ]
     }

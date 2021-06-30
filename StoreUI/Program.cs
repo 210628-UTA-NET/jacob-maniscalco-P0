@@ -10,8 +10,7 @@ namespace StoreUI
         {
             IMenu menu = new MainMenu();
             MenuType currMenu = MenuType.MainMenu;
-
-           bool cond = true;
+            bool cond = true;
 
             while(cond)
             {
@@ -19,7 +18,6 @@ namespace StoreUI
                 menu.menu();
                 currMenu= menu.getChoice();
                 
-
                 switch(currMenu) {
                     case MenuType.MainMenu: 
                         menu = new MainMenu();
@@ -31,10 +29,7 @@ namespace StoreUI
                         cond = false;
                         break;
                 }
-            
             }
-
-
         }
     }
 }
