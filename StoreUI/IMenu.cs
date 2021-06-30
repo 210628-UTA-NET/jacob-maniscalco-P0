@@ -1,12 +1,20 @@
-public interface IMenu
+namespace StoreUI
 {
-    /// <summary>
-    /// Creates a menu to display navigation options to the user.
-    /// </summary>
-    public void menu();
+    public enum MenuType {
+        MainMenu,
+        CustomerMenu,
+        Exit
+    }
+    public interface IMenu
+    {
+        /// <summary>
+        /// Creates a menu to display navigation options to the user.
+        /// </summary>
+        public void menu();
 
-    /// <summary>
-    /// Asks the user via the CLI for their navigation choice via a Console.ReadLine call
-    /// </summary>
-    public string getChoice();
+        /// <summary>
+        /// Asks the user via the CLI for their navigation choice via a Console.ReadLine call
+        /// </summary>
+        public string getChoice();
+    }
 }
