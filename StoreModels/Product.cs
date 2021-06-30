@@ -1,12 +1,58 @@
 public class Product
 {
-    public string name { get; set; }
-    public double price { get; set; }
-    public string description { get; set; }
-    public string category { get; set; }
 
-     public Product()
+    private string _name;
+    private double _price;
+    private string _description;
+    private string _category;
+    public Product()
     { }
+    public string name 
+    { 
+        get
+        {
+            return _name;
+        } 
+        set
+        {
+            _name = value;
+        } 
+    }
+    public double price 
+    { 
+        get
+        {
+            return _price;
+        } 
+        set
+        {
+            _price = value;
+        } 
+    }
+    public string description 
+    { 
+        get
+        {
+            return _description;
+        } 
+        set
+        {
+            _description = value;
+        } 
+    }
+    public string category 
+    { 
+        get
+        {
+            return _category;
+        } 
+        set
+        {
+            _category = value;
+        } 
+    }
+
+     
 
 
 }

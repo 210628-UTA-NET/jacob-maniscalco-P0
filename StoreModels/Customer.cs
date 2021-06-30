@@ -1,12 +1,56 @@
 using System.Collections.Generic;
 public class Customer 
 {
-    public string name { get; set; }
-    public string address { get; set; }
-    public string phoneNumber { get; set; }
-    public List<Order> orders { get; set; }
 
-
+    private string _name;
+    private string _address;
+    private string _phoneNumber;
+    private List<Order> _orders;
     public Customer()
     { }
+    public string Name 
+    { 
+        get
+        {
+            return _name;
+        }
+        set
+        {
+            _name = value;
+        } 
+    }
+    public string address 
+    { 
+        get
+        {
+            return _address;
+        }
+         
+        set
+        {
+            _address = value;
+        } 
+    }
+    public string phoneNumber 
+    { 
+        get
+        {
+            return _phoneNumber;
+        } 
+        set
+        {
+            _phoneNumber = value;
+        } 
+    }
+    public List<Order> orders 
+    { 
+        get
+        {
+            return _orders;
+        }
+         set
+         {
+             _orders = value;
+         } 
+    }
 }
