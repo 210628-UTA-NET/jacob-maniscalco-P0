@@ -11,7 +11,7 @@ namespace StoreDL
         private const string _filePath = "./../StoreDL/Database/StoreFront.json";
         private string _jsonString;
 
-        public List<StoreModels.StoreFront> getAllStores()
+        public List<StoreModels.StoreFront> getAllStoreFronts()
         { 
             try
             {

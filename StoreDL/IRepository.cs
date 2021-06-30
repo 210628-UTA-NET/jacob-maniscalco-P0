@@ -10,7 +10,7 @@ namespace StoreDL
         /// Retrieves all storeFront fronts from the database
         /// </summary>
         /// <returns>A list of StoreFront objects </returns>
-        List<StoreModels.StoreFront> getAllStores();
+        List<StoreModels.StoreFront> getAllStoreFronts();
 
         /// <summary>
         /// Retrieves a specific storeFront object from the database
