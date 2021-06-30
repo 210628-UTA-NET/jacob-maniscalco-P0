@@ -15,6 +15,6 @@ namespace StoreUI
         /// <summary>
         /// Asks the user via the CLI for their navigation choice via a Console.ReadLine call
         /// </summary>
-        public string getChoice();
+        public MenuType getChoice();
     }
 }

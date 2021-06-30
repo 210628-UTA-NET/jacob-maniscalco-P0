@@ -7,25 +7,26 @@ namespace StoreUI
         static void Main(string[] args)
         {
             IMenu menu = new MainMenu();
-            String currMenu = "MainMenu";
+            MenuType currMenu = MenuType.MainMenu;
 
-           bool cont = true;
+           bool cond = true;
 
-            while(cont)
+            while(cond)
             {
+                Console.Clear();
                 menu.menu();
                 currMenu= menu.getChoice();
                 
 
                 switch(currMenu) {
-                    case "MainMenu": 
+                    case MenuType.MainMenu: 
                         menu = new MainMenu();
                         break;
-                    case "CustomerMenu":
+                    case MenuType.CustomerMenu:
                         menu = new CustomerMenu();
                         break;
-                    default:
-                        cont = false;
+                    case MenuType.Exit:
+                        cond = false;
                         break;
                 }
             

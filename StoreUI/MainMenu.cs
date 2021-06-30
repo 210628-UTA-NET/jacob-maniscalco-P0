@@ -7,23 +7,23 @@ namespace StoreUI
         public void menu() 
         {
             Console.WriteLine("Welcome to the store");
-            //Console.WriteLine("[0] To return to the main menu.");
-            Console.WriteLine("[0] To enter the customer menu (add or list customers).");
-            Console.WriteLine("[1] To exit.");
+            Console.WriteLine("[1] To enter the customer menu (add or list customers).");
+            Console.WriteLine("[0] To exit.");
         }
 
-        public string getChoice()
+        public MenuType getChoice()
         {
             string userInput = Console.ReadLine();
 
             switch(userInput)
             {
-                case "0":
-                    return "MainMenu";
                 case "1":
-                    return "CustomerMenu";
+                    return MenuType.CustomerMenu;
+                case "0":
+                    return MenuType.Exit;
                 default:
-                    return "Exit";
+                    Console.WriteLine("That is not a valid input.");
+                    return MenuType.MainMenu;
             }
         }
     }
