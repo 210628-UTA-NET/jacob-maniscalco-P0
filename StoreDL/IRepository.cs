@@ -24,7 +24,7 @@ namespace StoreDL
         /// </summary>
         /// <param name="store">The storeFront object the user wishes to insert into the database</param>
         /// <returns>A storeFront object that has just been created</returns>
-        StoreModels.StoreFront addAStoreFront(StoreModels.StoreFront store);
+        Boolean addAStoreFront(StoreModels.StoreFront store);
 
 
     }

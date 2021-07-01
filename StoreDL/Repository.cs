@@ -27,7 +27,25 @@ namespace StoreDL
         public StoreModels.StoreFront getAStoreFront(StoreModels.StoreFront store)
         { throw new System.NotImplementedException(); }
 
-        public StoreModels.StoreFront addAStoreFront(StoreModels.StoreFront store)
-        { throw new System.NotImplementedException(); }
+        // Think about changing this to return a boolean instead, which can act as a flag for success
+        public Boolean addAStoreFront(StoreModels.StoreFront store)
+        {
+            Boolean success = false;
+            List<StoreModels.StoreFront> stores = this.getAllStoreFronts();
+            stores.Add(store);
+
+            _jsonString = JsonSerializer.Serialize(stores, new JsonSerializerOptions {WriteIndented = true});
+            
+            try {
+                File.WriteAllText(_filePath, _jsonString);
+                success = true;
+            }
+            catch(System.Exception)
+            {
+                Console.WriteLine("Error while writing to json file.");
+            }
+           
+            return success;
+         }
     }
 }
