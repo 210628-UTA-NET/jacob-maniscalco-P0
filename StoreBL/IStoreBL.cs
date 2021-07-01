@@ -10,5 +10,11 @@ namespace StoreBL
         /// </summary>
         /// <returns>Returns a list of StoreFront objects</returns>
         List<StoreModels.StoreFront> GetAllStoreFronts();
+
+        /// <summary>
+        ///  Adds a StoreFront object to the database 
+        /// </summary>
+        /// <returns> Returns a boolean if the data was successfully added to the database</returns>
+        Boolean addStoreFront(StoreModels.StoreFront p_store);
     }
 }

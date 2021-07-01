@@ -16,5 +16,10 @@ namespace StoreBL
         {
             return _repo.getAllStoreFronts();
         }
+
+        public Boolean addStoreFront(StoreModels.StoreFront p_store)
+        {
+            return _repo.addAStoreFront(p_store);
+        }
     }
 }
