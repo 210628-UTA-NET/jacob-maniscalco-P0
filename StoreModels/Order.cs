@@ -1,24 +1,22 @@
 using System.Collections.Generic;
 
 namespace StoreModels {
-    public class Order {
+    public class Order 
+    {
 
-        private List<LineItems> _order;
+        private List<LineItems> _items;
         private string _location;
         private double _price;
 
-        public Order()
-        { }
-
-        public List<LineItems> order 
+        public List<LineItems> items 
         {  
             get
             {
-                return _order;
+                return _items;
             } 
             set
             {
-                _order = value;
+                _items = value;
             } 
         }
         public string location 
