@@ -3,6 +3,7 @@ namespace StoreUI
     public enum MenuType {
         MainMenu,
         CustomerMenu,
+        AddCustomerMenu,
         StoreMenu,
         AddStoreFrontMenu,
         Exit

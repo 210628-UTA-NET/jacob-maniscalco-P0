@@ -25,6 +25,9 @@ namespace StoreUI
                     case MenuType.CustomerMenu:
                         menu = new CustomerMenu();
                         break;
+                    case MenuType.AddCustomerMenu:
+                        menu = new AddCustomerMenu();
+                        break;
                     case MenuType.StoreMenu: 
                         menu = new StoreMenu();
                         break;

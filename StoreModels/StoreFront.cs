@@ -79,7 +79,7 @@ namespace StoreModels {
                 Console.WriteLine("Order " + counter + " info:");
                 Console.WriteLine("Location: " + order.location);
                 Console.WriteLine("Price: " + order.price);
-                foreach(LineItems item in order.order)
+                foreach(LineItems item in order.items)
                 {        
                     Console.WriteLine("----Item----");
                     Console.WriteLine(item.product.name);

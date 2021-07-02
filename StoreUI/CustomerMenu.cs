@@ -19,7 +19,7 @@ namespace StoreUI
             switch(userInput)
             {
                 case "1": 
-                    return MenuType.CustomerMenu;
+                    return MenuType.AddCustomerMenu;
                 case "2": 
                     return MenuType.MainMenu;
                 case "0":
