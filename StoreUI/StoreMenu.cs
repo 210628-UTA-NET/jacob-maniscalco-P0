@@ -21,6 +21,8 @@ namespace StoreUI
                     return MenuType.AddStoreFrontMenu;
                 case "1":
                     return MenuType.StoreMenu;
+                case "0":
+                    return MenuType.MainMenu;
                 default:
                     return MenuType.StoreMenu;
             }
