@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace StoreUI
 {
@@ -13,15 +14,39 @@ namespace StoreUI
             {
                 case "4": 
                     Console.Write("Customer Name: ");
-                    _newCustomer.Name = Console.ReadLine();
+                    try
+                    {
+                        _newCustomer.Name = Console.ReadLine();
+                    }
+                    catch(Exception)
+                    {
+                        Console.WriteLine("Incorrect name format.");
+                        Thread.Sleep(2000);
+                    }
                     return MenuType.AddCustomerMenu;
                 case "3":
                     Console.Write("Customer Address: ");
-                    _newCustomer.address = Console.ReadLine();
+                    try
+                    {
+                        _newCustomer.address = Console.ReadLine();
+                    }
+                    catch(System.Exception)
+                    {
+                        Console.WriteLine("Incorrect address format.");
+                        Thread.Sleep(2000);
+                    }
                     return MenuType.AddCustomerMenu;
                 case "2":
                     Console.Write("Customer Phone Number: ");
-                    _newCustomer.phoneNumber = Console.ReadLine();
+                    try 
+                    {
+                        _newCustomer.phoneNumber = Console.ReadLine();
+                    }
+                    catch(System.Exception)
+                    {
+                        Console.WriteLine("Incorrect phone number format.");
+                        Thread.Sleep(2000);
+                    }
                     return MenuType.AddCustomerMenu;
                 case "1":
                     // Add logic to add customer to db

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace StoreModels {
     public class Customer 
@@ -18,7 +19,14 @@ namespace StoreModels {
             }
             set
             {
-                _name = value;
+                if(!Regex.IsMatch(value, @"^[A-za-z ,.'-]+$"))
+                {
+                    throw new System.Exception("Incorrect name format");
+                }
+                else
+                {
+                    _name = value;
+                }
             } 
         }
         public string address 
@@ -30,6 +38,10 @@ namespace StoreModels {
             
             set
             {
+                if(!Regex.IsMatch(value, @"^[\d{1-5}\sA-Za-z0-9\.\-]+$"))
+                {
+                    throw new System.Exception("Incorrect address format.");
+                }
                 _address = value;
             } 
         }
@@ -41,6 +53,10 @@ namespace StoreModels {
             } 
             set
             {
+                if(!Regex.IsMatch(value, @"^\d{10}$"))
+                {
+                    throw new System.Exception("Incorrect phone number format.");
+                }
                 _phoneNumber = value;
             } 
         }
