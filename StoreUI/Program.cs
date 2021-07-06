@@ -8,6 +8,7 @@ namespace StoreUI
     {
         static void Main(string[] args)
         {
+            IFactory menuFactory = new MenuFactory();
             IMenu menu = new MainMenu();
             MenuType currMenu = MenuType.MainMenu;
             bool cond = true;
@@ -20,19 +21,19 @@ namespace StoreUI
                 
                 switch(currMenu) {
                     case MenuType.MainMenu: 
-                        menu = new MainMenu();
+                        menu = menuFactory.GetMenu(MenuType.MainMenu);
                         break;
                     case MenuType.CustomerMenu:
-                        menu = new CustomerMenu();
+                        menu = menuFactory.GetMenu(MenuType.CustomerMenu);
                         break;
                     case MenuType.AddCustomerMenu:
-                        menu = new AddCustomerMenu();
+                        menu = menuFactory.GetMenu(MenuType.AddCustomerMenu);
                         break;
                     case MenuType.StoreMenu: 
-                        menu = new StoreMenu();
+                        menu = menuFactory.GetMenu(MenuType.StoreMenu);
                         break;
                     case MenuType.AddStoreFrontMenu:
-                        menu = new addStoreFrontMenu();
+                        menu = menuFactory.GetMenu(MenuType.AddCustomerMenu);
                         break;
                     case MenuType.Exit:
                         cond = false;
