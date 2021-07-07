@@ -65,5 +65,15 @@ namespace StoreModels {
                 _category = value;
             } 
         }
+
+        public override string ToString()
+        {
+            string output = $"Name: {Name}\n" + 
+                            $"Description: {Description}\n" +
+                            $"Category: {Category}\n" +
+                            $"Price: {Price}\n";
+
+            return output;
+        }
     }
 }
