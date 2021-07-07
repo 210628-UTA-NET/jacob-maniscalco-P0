@@ -6,6 +6,9 @@ namespace StoreUI
         AddCustomerMenu,
         StoreMenu,
         AddStoreFrontMenu,
+        ProductMenu,
+        GetProductMenu,
+        GetAllProductsMenu,
         Exit
     }
     public interface IMenu
