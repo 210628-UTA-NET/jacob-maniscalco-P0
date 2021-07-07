@@ -7,8 +7,8 @@ namespace StoreBL
     public class StoreBL : IStoreBL
     {
 
-        private StoreDL.IRepository _repo;
-        public StoreBL(StoreDL.IRepository p_repo)
+        private StoreDL.IStoreRepository _repo;
+        public StoreBL(StoreDL.IStoreRepository p_repo)
         {
             _repo = p_repo;
         }
