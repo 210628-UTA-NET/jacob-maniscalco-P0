@@ -7,7 +7,7 @@ namespace StoreModels {
 
         private string _name;
         private string _address;
-        private List<LineItems> _inventory;
+        private List<LineItem> _inventory;
         private List<Order> _orders;
         public StoreFront()
         { }
@@ -33,7 +33,7 @@ namespace StoreModels {
                 _address = value;
             } 
         }
-        public List<LineItems> inventory 
+        public List<LineItem> inventory 
         { 
             get
             {
@@ -63,12 +63,12 @@ namespace StoreModels {
             Console.WriteLine(this.name);
             Console.WriteLine(this.address);
             Console.WriteLine("----Inventory----");
-            foreach(LineItems item in this.inventory)
+            foreach(LineItem item in this.inventory)
             {
                 Console.WriteLine("----Item----");
-                Console.WriteLine(item.product.name);
-                Console.WriteLine(item.product.price);
-                Console.WriteLine(item.product.description);
+                Console.WriteLine(item.product.Name);
+                Console.WriteLine(item.product.Price);
+                Console.WriteLine(item.product.Description);
                 Console.WriteLine("-------------");
             }
 
@@ -79,12 +79,12 @@ namespace StoreModels {
                 Console.WriteLine("Order " + counter + " info:");
                 Console.WriteLine("Location: " + order.location);
                 Console.WriteLine("Price: " + order.price);
-                foreach(LineItems item in order.items)
+                foreach(LineItem item in order.items)
                 {        
                     Console.WriteLine("----Item----");
-                    Console.WriteLine(item.product.name);
-                    Console.WriteLine(item.product.price);
-                    Console.WriteLine(item.product.description);
+                    Console.WriteLine(item.product.Name);
+                    Console.WriteLine(item.product.Price);
+                    Console.WriteLine(item.product.Description);
                     Console.WriteLine("-------------");
                 }
 

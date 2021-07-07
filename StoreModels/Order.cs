@@ -4,11 +4,11 @@ namespace StoreModels {
     public class Order 
     {
 
-        private List<LineItems> _items;
+        private List<LineItem> _items;
         private string _location;
         private double _price;
 
-        public List<LineItems> items 
+        public List<LineItem> items 
         {  
             get
             {
