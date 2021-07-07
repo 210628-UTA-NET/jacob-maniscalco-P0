@@ -4,7 +4,12 @@ namespace StoreUI
 {
     public class addStoreFrontMenu : IMenu
     {
-        StoreBL.IStoreBL _storeBL = new StoreBL.StoreBL(new StoreDL.Repository());
+        StoreBL.IStoreBL _storeBL;
+
+        public addStoreFrontMenu(StoreBL.IStoreBL p_storeBL)
+        {
+            _storeBL = p_storeBL;
+        }
 
         private static StoreModels.StoreFront _store = new StoreModels.StoreFront();
         public MenuType getChoice()
@@ -28,9 +33,6 @@ namespace StoreUI
                     return MenuType.StoreMenu;
                 default:
                     return MenuType.AddStoreFrontMenu;
-
-
-
             }
         }
 
