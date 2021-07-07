@@ -1,10 +1,10 @@
 namespace StoreModels {
-    public class LineItems
+    public class LineItem
     {
         private Product _product;
         private int _quantity;
 
-        public LineItems()
+        public LineItem()
         { }
 
 
