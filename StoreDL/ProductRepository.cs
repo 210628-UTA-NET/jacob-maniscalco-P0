@@ -8,6 +8,11 @@ namespace StoreDL
     public class ProductRepository : IProductRepository
     {
         private Entities.jacobmaniscalcoprojectContext _context;
+
+        public ProductRepository(Entities.jacobmaniscalcoprojectContext p_context)
+        {
+            _context = p_context;
+        }
         public bool addCustomer(Product p_product)
         {
             throw new System.NotImplementedException();
