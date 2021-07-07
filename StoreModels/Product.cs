@@ -2,13 +2,26 @@ namespace StoreModels {
     public class Product
     {
 
+        private int _id;
         private string _name;
         private double _price;
         private string _description;
         private string _category;
         public Product()
         { }
-        public string name 
+
+        public int ID 
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
+        public string Name 
         { 
             get
             {
@@ -19,7 +32,7 @@ namespace StoreModels {
                 _name = value;
             } 
         }
-        public double price 
+        public double Price 
         { 
             get
             {
@@ -30,7 +43,7 @@ namespace StoreModels {
                 _price = value;
             } 
         }
-        public string description 
+        public string Description 
         { 
             get
             {
@@ -41,7 +54,7 @@ namespace StoreModels {
                 _description = value;
             } 
         }
-        public string category 
+        public string Category 
         { 
             get
             {
