@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace StoreDL
 {
-    public interface IRepository 
+    public interface IStoreRepository 
     {
         /// <summary>
         /// Retrieves all storeFront fronts from the database
@@ -24,8 +24,6 @@ namespace StoreDL
         /// </summary>
         /// <param name="store">The storeFront object the user wishes to insert into the database</param>
         /// <returns>A storeFront object that has just been created</returns>
-        Boolean addAStoreFront(StoreModels.StoreFront store);
-
-
+        bool addAStoreFront(StoreModels.StoreFront store);
     }
 }
