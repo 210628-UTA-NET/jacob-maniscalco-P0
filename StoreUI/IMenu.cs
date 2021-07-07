@@ -7,8 +7,8 @@ namespace StoreUI
         StoreMenu,
         AddStoreFrontMenu,
         ProductMenu,
-        GetProductMenu,
-        GetAllProductsMenu,
+        ShowProductMenu,
+        ShowProductsMenu,
         Exit
     }
     public interface IMenu

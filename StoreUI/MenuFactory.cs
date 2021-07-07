@@ -32,6 +32,12 @@ namespace StoreUI
                     return new StoreMenu();
                 case MenuType.AddStoreFrontMenu:
                     return new addStoreFrontMenu(new StoreBL.StoreBL(new StoreDL.StoreRepository(new jacobmaniscalcoprojectContext(options))));
+                case MenuType.ProductMenu:
+                    return new ProductMenu();
+                case MenuType.ShowProductMenu:
+                    return new ProductMenu();
+                case MenuType.ShowProductsMenu:
+                    return new ShowProductsMenu(new StoreBL.ProductBL(new StoreDL.ProductRepository(new jacobmaniscalcoprojectContext(options))));
                 default:
                     return new MainMenu();
             }

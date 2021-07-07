@@ -10,9 +10,9 @@ namespace StoreUI
             switch(userInput)
             {
                 case "2":
-                    return MenuType.GetAllProductsMenu;
+                    return MenuType.ShowProductsMenu;
                 case "1":
-                    return MenuType.GetProductMenu;
+                    return MenuType.ShowProductMenu;
                 case "0":
                     return MenuType.Exit;
                 default:
