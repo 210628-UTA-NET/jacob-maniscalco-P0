@@ -3,12 +3,10 @@ using System.Collections.Generic;
 namespace StoreModels {
     public class Order 
     {
-
-        private List<LineItem> _items;
+        private List<OrderItem> _items;
         private string _location;
         private double _price;
-
-        public List<LineItem> items 
+        public List<OrderItem> items 
         {  
             get
             {
