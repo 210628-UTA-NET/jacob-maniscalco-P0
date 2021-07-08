@@ -28,7 +28,7 @@ namespace StoreUI
                     Console.Write("Customer Address: ");
                     try
                     {
-                        _newCustomer.address = Console.ReadLine();
+                        _newCustomer.Address = Console.ReadLine();
                     }
                     catch(System.Exception)
                     {
@@ -40,7 +40,7 @@ namespace StoreUI
                     Console.Write("Customer Phone Number: ");
                     try 
                     {
-                        _newCustomer.phoneNumber = Console.ReadLine();
+                        _newCustomer.PhoneNumber = Console.ReadLine();
                     }
                     catch(System.Exception)
                     {
@@ -62,8 +62,8 @@ namespace StoreUI
         {
             Console.WriteLine("---Add a customer---");
             Console.WriteLine($"[4] Name: {_newCustomer.Name}");
-            Console.WriteLine($"[3] Address: {_newCustomer.address}");
-            Console.WriteLine($"[2] Phone Number: {_newCustomer.phoneNumber}");
+            Console.WriteLine($"[3] Address: {_newCustomer.Address}");
+            Console.WriteLine($"[2] Phone Number: {_newCustomer.PhoneNumber}");
             Console.WriteLine("[1] Add Customer.");
             Console.WriteLine("[0] Exit to customer menu.");
         }

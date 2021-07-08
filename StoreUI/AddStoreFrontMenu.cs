@@ -20,11 +20,11 @@ namespace StoreUI
             {
                 case "3":
                     Console.Write("Store name: ");
-                    _store.name = Console.ReadLine();
+                    _store.Name = Console.ReadLine();
                     return MenuType.AddStoreFrontMenu;
                 case "2":
                     Console.Write("Store address: ");
-                    _store.address = Console.ReadLine();
+                    _store.Address = Console.ReadLine();
                     return MenuType.AddStoreFrontMenu;
                 case "1":
                     _storeBL.addStoreFront(_store);
@@ -39,8 +39,8 @@ namespace StoreUI
         public void menu()
         {
             Console.WriteLine("---Add a store front----");
-            Console.WriteLine($"[3] Name: {_store.name}");
-            Console.WriteLine($"[2] Address: {_store.address}");
+            Console.WriteLine($"[3] Name: {_store.Name}");
+            Console.WriteLine($"[2] Address: {_store.Address}");
             Console.WriteLine("[1] Add store.");
             Console.WriteLine("[0] Exit to store front menu.");
         }
