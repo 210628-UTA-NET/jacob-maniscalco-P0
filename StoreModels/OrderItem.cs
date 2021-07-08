@@ -10,7 +10,7 @@ namespace StoreModels
         public OrderItem()
         {}
 
-        public Product product
+        public Product Product
         {
             get
             {
@@ -22,7 +22,7 @@ namespace StoreModels
             }
         }
 
-        public int quantity
+        public int Quantity
         {
             get
             {

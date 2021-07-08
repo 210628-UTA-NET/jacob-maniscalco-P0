@@ -8,9 +8,9 @@ namespace StoreModels
         {
             Customer me = new Customer();
 
-            me.address = "test";
+            me.Address = "test";
 
-            Console.WriteLine(me.address);
+            Console.WriteLine(me.Address);
             Console.WriteLine("Hello World!");
         }
     }

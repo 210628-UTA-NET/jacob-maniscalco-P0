@@ -8,7 +8,7 @@ namespace StoreModels {
         { }
 
 
-        public Product product 
+        public Product Product 
         { 
             get
             {
@@ -19,7 +19,7 @@ namespace StoreModels {
                 _product = value;
             } 
         }
-        public int quantity 
+        public int Quantity 
         { 
             get
             {
