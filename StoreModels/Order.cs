@@ -3,10 +3,23 @@ using System.Collections.Generic;
 namespace StoreModels {
     public class Order 
     {
+        private int _id;
         private List<OrderItem> _items;
         private string _location;
         private double _price;
-        public List<OrderItem> items 
+
+        public int ID 
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
+        public List<OrderItem> Items 
         {  
             get
             {
@@ -17,7 +30,7 @@ namespace StoreModels {
                 _items = value;
             } 
         }
-        public string location 
+        public string Location 
         { 
             get
             {
@@ -28,7 +41,7 @@ namespace StoreModels {
                 _location = value;
             } 
         }
-        public double price 
+        public double Price 
         { 
             get
             {

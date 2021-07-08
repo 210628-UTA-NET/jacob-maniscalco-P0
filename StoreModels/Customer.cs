@@ -5,12 +5,25 @@ namespace StoreModels {
     public class Customer 
     {
 
+        private int _id;
         private string _name;
         private string _address;
         private string _phoneNumber;
         private List<Order> _orders;
         public Customer()
         { }
+
+        public int ID 
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
+            }
+        }
         public string Name 
         { 
             get
@@ -29,7 +42,7 @@ namespace StoreModels {
                 }
             } 
         }
-        public string address 
+        public string Address 
         { 
             get
             {
@@ -45,7 +58,7 @@ namespace StoreModels {
                 _address = value;
             } 
         }
-        public string phoneNumber 
+        public string PhoneNumber 
         { 
             get
             {
@@ -60,7 +73,7 @@ namespace StoreModels {
                 _phoneNumber = value;
             } 
         }
-        public List<Order> orders 
+        public List<Order> Orders 
         { 
             get
             {
