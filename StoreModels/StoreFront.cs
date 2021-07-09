@@ -71,40 +71,13 @@ namespace StoreModels {
             } 
         }
 
-
-        public void displayStoreFrontInfo()
+        public override string ToString()
         {
-            Console.WriteLine("----StoreFront Info----");
-            Console.WriteLine(this.Name);
-            Console.WriteLine(this.Address);
-            Console.WriteLine("----Inventory----");
-            foreach(LineItem item in this.Inventory)
-            {
-                Console.WriteLine("----Item----");
-                Console.WriteLine(item.Product.Name);
-                Console.WriteLine(item.Product.Price);
-                Console.WriteLine(item.Product.Description);
-                Console.WriteLine("-------------");
-            }
-
-            Console.WriteLine("----Orders----");
-            foreach(Order order in this.Orders)
-            {
-                int counter = 1;
-                Console.WriteLine("Order " + counter + " info:");
-                Console.WriteLine("Location: " + order.Location);
-                Console.WriteLine("Price: " + order.Price);
-                foreach(OrderItem item in order.Items)
-                {        
-                    Console.WriteLine("----Item----");
-                    Console.WriteLine(item.Product.Name);
-                    Console.WriteLine(item.Product.Price);
-                    Console.WriteLine(item.Product.Description);
-                    Console.WriteLine("-------------");
-                }
-
-                counter++;
-            }
+            string output = $"Name: {Name}\n" + 
+                            $"Store ID: {ID}\n" +
+                            $"Address: {Address}\n";
+            return output;
         }
+        
     }
 }
