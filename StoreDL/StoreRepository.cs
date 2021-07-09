@@ -25,9 +25,16 @@ namespace StoreDL
         }
 
         // Think about changing this to return a boolean instead, which can act as a flag for success
-        public bool addAStoreFront(StoreModels.StoreFront store)
+        public bool addAStoreFront(StoreModels.StoreFront p_store)
         {
-           throw new System.NotImplementedException();
+           _context.StoreFronts.Add(new StoreDL.Entities.StoreFront{
+               StoreFrontId = p_store.ID,
+               StoreFrontName = p_store.Name,
+               StoreFrontAddress = p_store.Address
+           });
+
+           _context.SaveChanges();
+           return true;
         }
     }
 }
