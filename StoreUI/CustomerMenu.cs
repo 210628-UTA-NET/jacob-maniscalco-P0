@@ -7,7 +7,8 @@ namespace StoreUI
         public void menu()
         {
             Console.WriteLine("Welcome to the customer menu.");
-            Console.WriteLine("[2] To enter a new customer.");
+            Console.WriteLine("[3] To enter a new customer.");
+            Console.WriteLine("[2] Show all customers.");
             Console.WriteLine("[1] Return to main menu.");
             Console.WriteLine("[0] To exit.");
         }
@@ -18,10 +19,12 @@ namespace StoreUI
 
             switch(userInput)
             {
-                case "1": 
-                    return MenuType.MainMenu;
-                case "2": 
+                case "3": 
                     return MenuType.AddCustomerMenu;
+                case "2": 
+                    return MenuType.ShowCustomersMenu;
+                case "1":
+                    return MenuType.MainMenu;
                 case "0":
                     return MenuType.Exit;
                 default:

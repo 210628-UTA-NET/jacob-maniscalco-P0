@@ -4,6 +4,7 @@ namespace StoreUI
         MainMenu,
         CustomerMenu,
         AddCustomerMenu,
+        ShowCustomersMenu,
         StoreMenu,
         AddStoreFrontMenu,
         ProductMenu,
