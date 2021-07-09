@@ -84,5 +84,14 @@ namespace StoreModels {
                 _orders = value;
             } 
         }
+
+        public override string ToString()
+        {
+            string output = $"Name: {Name}\n" +
+                            $"ID: {ID}\n" + 
+                            $"Address: {Address}\n" +
+                            $"Phone Number: {PhoneNumber}\n";
+            return output;
+        }
     }
 }
