@@ -20,7 +20,7 @@ namespace StoreUI
                 case "2":
                     return MenuType.AddStoreFrontMenu;
                 case "1":
-                    return MenuType.StoreMenu;
+                    return MenuType.ShowStoresMenu;
                 case "0":
                     return MenuType.MainMenu;
                 default:
