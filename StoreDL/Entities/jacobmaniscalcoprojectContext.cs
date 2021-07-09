@@ -17,11 +17,34 @@ namespace StoreDL.Entities
         {
         }
 
+        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<LineItem> LineItems { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<StoreFront> StoreFronts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Customer>(entity =>
+            {
+                entity.ToTable("Customer");
+
+                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+
+                entity.Property(e => e.CustomerAddress)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CustomerName)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CustomerPhoneNumber)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
 
             modelBuilder.Entity<LineItem>(entity =>
             {
@@ -29,18 +52,60 @@ namespace StoreDL.Entities
 
                 entity.ToTable("LineItem");
 
-                entity.Property(e => e.LineId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("LineID");
+                entity.Property(e => e.LineItemProductId).HasColumnName("LineItem_ProductID");
 
-                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+                entity.Property(e => e.StoreFrontId).HasColumnName("StoreFrontID");
 
-                entity.Property(e => e.Quantity).HasColumnName("quantity");
-
-                entity.HasOne(d => d.Product)
+                entity.HasOne(d => d.LineItemProduct)
                     .WithMany()
-                    .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("foreign_key");
+                    .HasForeignKey(d => d.LineItemProductId)
+                    .HasConstraintName("FK__LineItem__LineIt__1F98B2C1");
+
+                entity.HasOne(d => d.StoreFront)
+                    .WithMany()
+                    .HasForeignKey(d => d.StoreFrontId)
+                    .HasConstraintName("FK__LineItem__StoreF__1EA48E88");
+            });
+
+            modelBuilder.Entity<Order>(entity =>
+            {
+                entity.Property(e => e.OrderId).HasColumnName("OrderID");
+
+                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+
+                entity.Property(e => e.OrderLocation)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.OrderPrice).HasColumnType("decimal(18, 0)");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK__Orders__Customer__17F790F9");
+            });
+
+            modelBuilder.Entity<OrderItem>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("OrderItem");
+
+                entity.Property(e => e.OrderId).HasColumnName("OrderID");
+
+                entity.Property(e => e.OrderProductId).HasColumnName("Order_ProductID");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany()
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__OrderItem__Order__1AD3FDA4");
+
+                entity.HasOne(d => d.OrderProduct)
+                    .WithMany()
+                    .HasForeignKey(d => d.OrderProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__OrderItem__Order__19DFD96B");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -49,24 +114,34 @@ namespace StoreDL.Entities
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
-                entity.Property(e => e.Category)
+                entity.Property(e => e.ProductCategory)
                     .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .HasColumnName("category");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Description)
+                entity.Property(e => e.ProductDescription)
                     .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .HasColumnName("description");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Name)
+                entity.Property(e => e.ProductName)
                     .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .HasColumnName("name");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Price)
-                    .HasColumnType("decimal(2, 0)")
-                    .HasColumnName("price");
+                entity.Property(e => e.ProductPrice).HasColumnType("decimal(18, 0)");
+            });
+
+            modelBuilder.Entity<StoreFront>(entity =>
+            {
+                entity.ToTable("StoreFront");
+
+                entity.Property(e => e.StoreFrontId).HasColumnName("StoreFrontID");
+
+                entity.Property(e => e.StoreFrontAddress)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.StoreFrontName)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

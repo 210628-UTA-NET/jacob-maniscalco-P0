@@ -7,10 +7,11 @@ namespace StoreDL.Entities
 {
     public partial class LineItem
     {
-        public int LineId { get; set; }
-        public int? Quantity { get; set; }
-        public int? ProductId { get; set; }
+        public int? StoreFrontId { get; set; }
+        public int? LineItemProductId { get; set; }
+        public int? ItemQuantity { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Product LineItemProduct { get; set; }
+        public virtual StoreFront StoreFront { get; set; }
     }
 }
