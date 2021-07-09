@@ -6,6 +6,12 @@ namespace StoreUI
     public class AddCustomerMenu : IMenu
     {
         private static StoreModels.Customer _newCustomer = new StoreModels.Customer();
+        private StoreBL.ICustomerBL _customerBL;
+
+        public AddCustomerMenu(StoreBL.ICustomerBL p_customerBL)
+        {
+            _customerBL = p_customerBL;
+        }
         public MenuType getChoice()
         {
             string customerInput = Console.ReadLine();
@@ -50,6 +56,8 @@ namespace StoreUI
                     return MenuType.AddCustomerMenu;
                 case "1":
                     // Add logic to add customer to db
+                    
+                    _customerBL.AddCustomer(_newCustomer);
                     _newCustomer = new StoreModels.Customer();
                     return MenuType.AddCustomerMenu;
                 case "0":
