@@ -13,11 +13,6 @@ namespace StoreDL
         {
             _context = p_context;
         }
-        public bool addCustomer(Product p_product)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public List<Product> getAllProducts()
         {
             return _context.Products.Select(
@@ -25,10 +20,10 @@ namespace StoreDL
                     new StoreModels.Product()
                     {
                         ID = product.ProductId,
-                        Name = product.Name,
-                        Description = product.Description,
-                        Price = (double) product.Price,
-                        Category = product.Category
+                        Name = product.ProductName,
+                        Description = product.ProductDescription,
+                        Price =  Convert.ToDouble(product.ProductPrice),
+                        Category = product.ProductCategory
                     }
             ).ToList();
         }
