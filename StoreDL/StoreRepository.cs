@@ -17,8 +17,17 @@ namespace StoreDL
         }
         public List<StoreModels.StoreFront> getAllStoreFronts()
         { 
-            throw new System.NotImplementedException();
+            return _context.StoreFronts.Select(
+                store =>
+                    new StoreModels.StoreFront()
+                    {
+                        ID = store.StoreFrontId,
+                        Name = store.StoreFrontName,
+                        Address = store.StoreFrontAddress
+                    }
+                ).ToList();
         }
+        
         public StoreModels.StoreFront getAStoreFront(StoreModels.StoreFront store)
         { 
             throw new System.NotImplementedException(); 
