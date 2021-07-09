@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace StoreBL
 {
@@ -6,5 +7,7 @@ namespace StoreBL
     {
         /// Add documentation
         bool AddCustomer(StoreModels.Customer p_customer);
+
+        List<StoreModels.Customer> GetAllCustomers();
     }
 }

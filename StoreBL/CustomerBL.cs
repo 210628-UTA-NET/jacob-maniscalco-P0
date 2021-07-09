@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using StoreModels;
 
 namespace StoreBL
@@ -14,6 +14,11 @@ namespace StoreBL
         public bool AddCustomer(Customer p_customer)
         {
             return _repo.AddCustomer(p_customer);
+        }
+
+        public List<StoreModels.Customer> GetAllCustomers()
+        {
+            return _repo.GetAllCustomers();
         }
     }
 }
