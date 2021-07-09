@@ -28,7 +28,6 @@ namespace StoreUI
         public void menu()
         {
             List<StoreModels.Customer> customers = _customerBL.GetAllCustomers();
-            Console.WriteLine("Size: " + customers.Count);
             foreach(StoreModels.Customer customer in customers)
             {
                 Console.WriteLine(customer);
