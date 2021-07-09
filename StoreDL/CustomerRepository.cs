@@ -1,6 +1,7 @@
-
+using System;
+using System.Collections.Generic;
 using StoreModels;
-
+using System.Linq;
 namespace StoreDL
 {
     public class CustomerRepository : ICustomerRepository
@@ -18,11 +19,23 @@ namespace StoreDL
                 CustomerName = p_customer.Name,
                 CustomerAddress = p_customer.Address,
                 CustomerPhoneNumber = p_customer.PhoneNumber
-                
             });
-
             _context.SaveChanges();
             return true;
+        }
+
+        public List<StoreModels.Customer> GetAllCustomers()
+        {
+            return _context.Customers.Select(
+                customer =>
+                    new StoreModels.Customer()
+                    {
+                        ID = customer.CustomerId,
+                        Name = customer.CustomerName,
+                        Address = customer.CustomerAddress,
+                        PhoneNumber = customer.CustomerPhoneNumber
+                    }
+            ).ToList();
         }
     }
 }
