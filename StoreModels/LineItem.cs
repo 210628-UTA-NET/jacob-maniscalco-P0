@@ -30,5 +30,11 @@ namespace StoreModels {
                 _quantity = value;
             } 
         }
+
+        public override string ToString()
+        {
+            return Product.ToString() + 
+                    $"Quantity: {Quantity}";
+        }
     }
 }
