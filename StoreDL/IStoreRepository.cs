@@ -25,5 +25,12 @@ namespace StoreDL
         /// <param name="store">The storeFront object the user wishes to insert into the database</param>
         /// <returns>A storeFront object that has just been created</returns>
         bool addAStoreFront(StoreModels.StoreFront store);
+
+        /// <summary>
+        /// Retrieves a list of Line Items (Store Inventory) from the db
+        /// </summary>
+        /// <param name="p_storeID"> The store ID</param>
+        /// <returns>List of Line Items representing the store's inventory</returns>
+        List<StoreModels.LineItem> GetStoreInventory(int p_storeID);
     }
 }

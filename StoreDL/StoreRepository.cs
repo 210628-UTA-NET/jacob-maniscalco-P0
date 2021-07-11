@@ -45,5 +45,51 @@ namespace StoreDL
            _context.SaveChanges();
            return true;
         }
+
+        public List<StoreModels.LineItem> GetStoreInventory(int p_storeID)
+        {
+            //What will be returned
+            List<StoreModels.LineItem> LineItems = new List<StoreModels.LineItem>();
+
+            // List of Entities.LineItem objects that match supplied store ID
+            var EntityItems = _context.LineItems.Where(item => item.StoreFrontId == p_storeID);
+            
+            List<int> productIDs = new List<int>();
+            
+            foreach(Entities.LineItem item in EntityItems)
+            {
+                productIDs.Add((int) item.LineItemProductId);
+            }   
+            var ProductItems = _context.Products.Where(item => productIDs.Contains(item.ProductId));
+            
+
+            List<StoreModels.Product> products = new List<StoreModels.Product>();
+            foreach(Entities.Product product in ProductItems)
+            {
+                products.Add(
+                    new Product()
+                    {
+                        ID = product.ProductId,
+                        Name = product.ProductName,
+                        Description = product.ProductDescription,
+                        Category = product.ProductCategory,
+                        Price = (double) product.ProductPrice
+                    }
+                );
+            }
+            int i = 0;
+            foreach(Entities.LineItem item in EntityItems)
+            {
+                LineItems.Add(
+                    new LineItem()
+                    {
+                        Product = products.ElementAt(i),
+                        Quantity = item.ItemQuantity.Value
+                    }
+                );
+                i++;
+            }
+        return LineItems;
+        }
     }
 }
