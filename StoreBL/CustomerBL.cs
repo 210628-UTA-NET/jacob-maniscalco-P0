@@ -20,5 +20,10 @@ namespace StoreBL
         {
             return _repo.GetAllCustomers();
         }
+
+        public StoreModels.Customer GetCustomer(int p_UserID)
+        {
+            return _repo.GetCustomer(p_UserID);
+        }
     }
 }
