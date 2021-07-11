@@ -21,5 +21,10 @@ namespace StoreBL
         {
             return _repo.addAStoreFront(p_store);
         }
+
+        public List<StoreModels.LineItem> GetStoreInventory(int p_StoreID)
+        {
+            return _repo.GetStoreInventory(p_StoreID);
+        }
     }
 }

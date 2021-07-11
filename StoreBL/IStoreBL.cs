@@ -16,5 +16,12 @@ namespace StoreBL
         /// </summary>
         /// <returns> Returns a boolean if the data was successfully added to the database</returns>
         Boolean addStoreFront(StoreModels.StoreFront p_store);
+
+        /// <summary>
+        /// Retrieves the inventory for a specific store
+        /// </summary>
+        /// <param name="p_storeID">The store ID </param>
+        /// <returns>List of LineItems representing the store's inventory</returns>
+        List<StoreModels.LineItem> GetStoreInventory(int p_storeID);
     }
 }
