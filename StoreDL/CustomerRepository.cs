@@ -37,5 +37,19 @@ namespace StoreDL
                     }
             ).ToList();
         }
+
+        public StoreModels.Customer GetCustomer(int p_customerID)
+        {
+            var output =  _context.Customers.Find(p_customerID);
+
+            return              
+                new StoreModels.Customer()
+                {
+                     ID = output.CustomerId,
+                        Name = output.CustomerName,
+                        Address = output.CustomerAddress,
+                        PhoneNumber = output.CustomerPhoneNumber
+                };
+        }
     }
 }
