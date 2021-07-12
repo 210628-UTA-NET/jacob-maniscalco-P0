@@ -28,9 +28,16 @@ namespace StoreDL
                 ).ToList();
         }
         
-        public StoreModels.StoreFront getAStoreFront(StoreModels.StoreFront store)
+        public StoreModels.StoreFront getAStoreFront(int p_storeID)
         { 
-            throw new System.NotImplementedException(); 
+            Entities.StoreFront store = _context.StoreFronts.First(store => store.StoreFrontId == p_storeID);
+
+            return new StoreModels.StoreFront()
+            {
+                ID = store.StoreFrontId,
+                Name = store.StoreFrontName,
+                Address = store.StoreFrontAddress
+            };
         }
 
         // Think about changing this to return a boolean instead, which can act as a flag for success

@@ -17,7 +17,7 @@ namespace StoreDL
         /// </summary>
         /// <param name="store"> A storeFront object to be retrieved</param>
         /// <returns>A store object from the database</returns>
-        StoreModels.StoreFront getAStoreFront(StoreModels.StoreFront store);
+        StoreModels.StoreFront getAStoreFront(int p_StoreID);
 
         /// <summary>
         /// Will insert a storeFront object into the database
