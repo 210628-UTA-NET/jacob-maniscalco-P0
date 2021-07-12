@@ -51,5 +51,35 @@ namespace StoreDL
                         PhoneNumber = output.CustomerPhoneNumber
                 };
         }
+
+        public bool AddOrder(StoreModels.Order p_order, int p_userID)
+        {
+            StoreDL.Entities.Order customerOrder = new StoreDL.Entities.Order()
+            {
+                CustomerId = p_userID,
+                OrderLocation = p_order.Location,
+                OrderPrice = (decimal?) p_order.Price
+            };
+            
+          _context.Orders.Add(customerOrder);
+          _context.SaveChanges();
+          
+
+        foreach(OrderItem product in p_order.Items)
+        {
+            _context.OrderItems.Add(new StoreDL.Entities.OrderItem()
+            {
+                OrderId = customerOrder.OrderId,
+                OrderProductId = product.Product.ID,
+        
+                ItemQuantity = product.Quantity
+            });
+        }
+
+        _context.SaveChanges();
+
+          Console.WriteLine("Customer Order ID: " + customerOrder.OrderId);
+          return true;
+        }
     }
 }
