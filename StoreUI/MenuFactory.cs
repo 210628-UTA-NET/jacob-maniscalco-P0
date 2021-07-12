@@ -32,6 +32,8 @@ namespace StoreUI
                     return new ShowCustomerMenu(new StoreBL.CustomerBL(new StoreDL.CustomerRepository(new jacobmaniscalcoprojectContext(options))));
                 case MenuType.ShowCustomersMenu:
                     return new ShowCustomersMenu(new StoreBL.CustomerBL(new StoreDL.CustomerRepository(new jacobmaniscalcoprojectContext(options))));
+                case MenuType.CreateOrderMenu:
+                    return new CreateOrderMenu(new StoreBL.StoreBL(new StoreDL.StoreRepository(new jacobmaniscalcoprojectContext(options))), new StoreBL.ProductBL(new StoreDL.ProductRepository(new jacobmaniscalcoprojectContext(options))));
                 case MenuType.StoreMenu:
                     return new StoreMenu();
                 case MenuType.ShowStoresMenu:
