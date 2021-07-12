@@ -72,7 +72,7 @@ namespace StoreModels {
                             $"|Name: {Name}\tID: {ID}\n" + 
                             $"|Description: {Description}\n" +
                             $"|Category: {Category}\n" +
-                            $"|Price: {Price}\n";
+                            string.Format("{0:0.00}", $"|Price: {Price}\n");
 
             return output;
         }
