@@ -73,9 +73,11 @@ namespace StoreModels {
 
         public override string ToString()
         {
-            string output = $"Name: {Name}\n" + 
-                            $"Store ID: {ID}\n" +
-                            $"Address: {Address}\n";
+            string output = $"|--------------------\n" + 
+                            $"|Name: {Name}\n" + 
+                            $"|Store ID: {ID}\n" +
+                            $"|Address: {Address}\n" +
+                            $"|---------------------\n";
             return output;
         }
         

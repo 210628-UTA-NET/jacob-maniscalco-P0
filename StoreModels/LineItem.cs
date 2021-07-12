@@ -34,7 +34,8 @@ namespace StoreModels {
         public override string ToString()
         {
             return Product.ToString() + 
-                    $"Quantity: {Quantity}";
+                    $"|Quantity: {Quantity}\n" + 
+                    $"|-----------------------\n"; 
         }
     }
 }
