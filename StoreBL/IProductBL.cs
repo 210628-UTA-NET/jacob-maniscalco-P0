@@ -5,7 +5,7 @@ namespace StoreBL
     {
         List<StoreModels.Product> GetAllProducts();
 
-        StoreModels.Product GetProduct(StoreModels.Product p_product);
+        StoreModels.Product GetProduct(int p_productID);
 
         bool addProduct(StoreModels.Product p_product);
     }

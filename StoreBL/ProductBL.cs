@@ -22,9 +22,9 @@ namespace StoreBL
             return _repo.getAllProducts();
         }
 
-        public Product GetProduct(Product p_product)
+        public Product GetProduct(int p_productID)
         {
-            throw new System.NotImplementedException();
+            return _repo.getProduct(p_productID);
         }
     }
 }
