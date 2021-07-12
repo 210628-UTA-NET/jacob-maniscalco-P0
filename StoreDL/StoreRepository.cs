@@ -54,12 +54,13 @@ namespace StoreDL
             // List of Entities.LineItem objects that match supplied store ID
             var EntityItems = _context.LineItems.Where(item => item.StoreFrontId == p_storeID);
             
+            //Creates a List of product IDs to later search the db
             List<int> productIDs = new List<int>();
-            
             foreach(Entities.LineItem item in EntityItems)
             {
                 productIDs.Add((int) item.LineItemProductId);
-            }   
+            }  
+            // db search for products with IDs from the productIDs List 
             var ProductItems = _context.Products.Where(item => productIDs.Contains(item.ProductId));
             
 
@@ -89,6 +90,7 @@ namespace StoreDL
                 );
                 i++;
             }
+            _context.SaveChanges();
         return LineItems;
         }
     }
