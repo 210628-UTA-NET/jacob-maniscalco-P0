@@ -25,5 +25,9 @@ namespace StoreBL
         {
             return _repo.GetCustomer(p_UserID);
         }
+        public bool AddOrder(StoreModels.Order p_order, int p_customerID)
+        {
+            return _repo.AddOrder(p_order, p_customerID);
+        }
     }
 }

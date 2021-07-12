@@ -24,5 +24,7 @@ namespace StoreBL
         /// <param name="p_id"> The ID of the customer requested</param>
         /// <returns>Returns a Customer model for the customer</returns>
         StoreModels.Customer GetCustomer(int p_id);
+
+        bool AddOrder(StoreModels.Order p_order, int p_customerID);
     }
 }
