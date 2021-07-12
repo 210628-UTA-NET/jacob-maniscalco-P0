@@ -28,9 +28,19 @@ namespace StoreDL
             ).ToList();
         }
 
-        public Product getProduct(Product p_product)
+        public Product getProduct(int p_productID)
         {
-            throw new System.NotImplementedException();
+            var output = _context.Products.Find(p_productID);
+
+            return 
+                new StoreModels.Product()
+                {
+                    ID = output.ProductId,
+                    Name = output.ProductName,
+                    Category = output.ProductCategory,
+                    Description = output.ProductDescription,
+                    Price = (double) output.ProductPrice
+                };
         }
     }
 }
