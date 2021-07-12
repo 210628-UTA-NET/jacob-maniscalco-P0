@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 namespace StoreUI
 {
     public class CreateOrderMenu : IMenu
     {
         private StoreBL.StoreBL _storeBL;
         private StoreBL.ProductBL _productBL;
+        private StoreBL.CustomerBL _customerBL;
 
-        public CreateOrderMenu(StoreBL.StoreBL p_storeBL, StoreBL.ProductBL p_productBL)
+        public CreateOrderMenu(StoreBL.StoreBL p_storeBL, StoreBL.ProductBL p_productBL, StoreBL.CustomerBL p_customerBL)
         {
             _storeBL = p_storeBL;
             _productBL = p_productBL;
+            _customerBL = p_customerBL;
         }
         public MenuType getChoice()
         {
@@ -18,7 +21,9 @@ namespace StoreUI
             switch(userInput)
             {
                 case "1":
-                int userID = int.Parse(userInput);
+                
+                Console.WriteLine("Enter your customer ID: ");
+                int userID = int.Parse(Console.ReadLine());
                 Console.Clear();
 
                 List<StoreModels.StoreFront> stores = _storeBL.GetAllStoreFronts();
@@ -26,17 +31,18 @@ namespace StoreUI
                 Console.WriteLine("|------------");
                 Console.WriteLine("|   Stores   ");
                 Console.WriteLine("|------------");
-                foreach(StoreModels.StoreFront store in stores)
+                foreach(StoreModels.StoreFront storeFront in stores)
                 {
-                    Console.WriteLine(store);
+                    Console.WriteLine(storeFront);
                 }
 
                 Console.WriteLine("Enter the Store ID of the store you wish to order from.");
                 userInput = Console.ReadLine();
                 int StoreID = int.Parse(userInput);
                 Console.Clear();
+                //Retrieve store Items and store Front object
                 List<StoreModels.LineItem> storeItems = _storeBL.GetStoreInventory(StoreID);
-                
+                StoreModels.StoreFront store = _storeBL.GetStoreFront(StoreID);
                 List<StoreModels.OrderItem> customerOrder = new List<StoreModels.OrderItem>();
 
                 bool cond = true;
@@ -82,10 +88,26 @@ namespace StoreUI
                             break;
                         }
                         case "0":
+                            double totalPrice = 0;
+                            foreach(StoreModels.OrderItem item in customerOrder)
+                            {
+                                totalPrice += (item.Product.Price * item.Quantity);
+                            }
+                            foreach(StoreModels.OrderItem item in customerOrder)
+                            {
+                                Console.WriteLine(item);
+                            }
+                            Console.WriteLine(String.Format("Total Price: {0:0.00}",totalPrice));
+                            Console.WriteLine("Your order has been processed");
                             StoreModels.Order newOrder = new StoreModels.Order()
                             {
-                                
+                                Items = customerOrder,
+                                Location = store.Address,
+                                Price = totalPrice
                             };
+
+                            bool success =  _customerBL.AddOrder(newOrder, userID);
+                            Thread.Sleep(5000);
                             cond = false;
                             break;
                             
