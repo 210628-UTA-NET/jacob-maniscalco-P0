@@ -7,6 +7,7 @@ namespace StoreDL.Entities
 {
     public partial class OrderItem
     {
+        public int OrderItemId { get; set; }
         public int OrderId { get; set; }
         public int OrderProductId { get; set; }
         public int? ItemQuantity { get; set; }

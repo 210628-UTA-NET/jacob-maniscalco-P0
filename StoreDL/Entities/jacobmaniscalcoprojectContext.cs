@@ -59,12 +59,12 @@ namespace StoreDL.Entities
                 entity.HasOne(d => d.LineItemProduct)
                     .WithMany()
                     .HasForeignKey(d => d.LineItemProductId)
-                    .HasConstraintName("FK__LineItem__LineIt__1F98B2C1");
+                    .HasConstraintName("FK__LineItem__LineIt__59C55456");
 
                 entity.HasOne(d => d.StoreFront)
                     .WithMany()
                     .HasForeignKey(d => d.StoreFrontId)
-                    .HasConstraintName("FK__LineItem__StoreF__1EA48E88");
+                    .HasConstraintName("FK__LineItem__StoreF__58D1301D");
             });
 
             modelBuilder.Entity<Order>(entity =>
@@ -77,35 +77,35 @@ namespace StoreDL.Entities
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.OrderPrice).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.OrderPrice).HasColumnType("decimal(6, 2)");
 
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK__Orders__Customer__17F790F9");
+                    .HasConstraintName("FK__Orders__Customer__51300E55");
             });
 
             modelBuilder.Entity<OrderItem>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("OrderItem");
+
+                entity.Property(e => e.OrderItemId).HasColumnName("OrderItemID");
 
                 entity.Property(e => e.OrderId).HasColumnName("OrderID");
 
                 entity.Property(e => e.OrderProductId).HasColumnName("Order_ProductID");
 
                 entity.HasOne(d => d.Order)
-                    .WithMany()
+                    .WithMany(p => p.OrderItems)
                     .HasForeignKey(d => d.OrderId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__OrderItem__Order__1AD3FDA4");
+                    .HasConstraintName("FK__OrderItem__Order__55009F39");
 
                 entity.HasOne(d => d.OrderProduct)
-                    .WithMany()
+                    .WithMany(p => p.OrderItems)
                     .HasForeignKey(d => d.OrderProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__OrderItem__Order__19DFD96B");
+                    .HasConstraintName("FK__OrderItem__Order__540C7B00");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -126,7 +126,7 @@ namespace StoreDL.Entities
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ProductPrice).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.ProductPrice).HasColumnType("decimal(6, 2)");
             });
 
             modelBuilder.Entity<StoreFront>(entity =>
