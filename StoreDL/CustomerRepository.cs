@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using StoreModels;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
 namespace StoreDL
 {
@@ -57,6 +58,7 @@ namespace StoreDL
         {
             StoreDL.Entities.Order customerOrder = new StoreDL.Entities.Order()
             {
+                StoreFrontId = p_order.StoreID,
                 CustomerId = p_userID,
                 OrderLocation = p_order.Location,
                 OrderPrice = (decimal?) p_order.Price
@@ -104,22 +106,22 @@ namespace StoreDL
             }
             
             List<StoreModels.OrderItem> orderItems = 
-                                                    ( from orderItem in _context.OrderItems join product in _context.Products on 
-                                                    orderItem.OrderProductId equals product.ProductId
-                                                    where orderIDs.Contains(orderItem.OrderId)
-                                                    select new StoreModels.OrderItem()
-                                                    {
-                                                        OrderID = orderItem.OrderId, 
-                                                        Quantity = (int) orderItem.ItemQuantity,
-                                                        Product = new Product()
-                                                        {
-                                                            Name = product.ProductName,
-                                                            ID = product.ProductId,
-                                                            Category = product.ProductCategory,
-                                                            Description = product.ProductDescription,
-                                                            Price = (double) product.ProductPrice
-                                                        }
-                                                    }).ToList();
+                ( from orderItem in _context.OrderItems join product in _context.Products on 
+                orderItem.OrderProductId equals product.ProductId
+                where orderIDs.Contains(orderItem.OrderId)
+                select new StoreModels.OrderItem()
+                {
+                    OrderID = orderItem.OrderId, 
+                    Quantity = (int) orderItem.ItemQuantity,
+                    Product = new Product()
+                    {
+                        Name = product.ProductName,
+                        ID = product.ProductId,
+                        Category = product.ProductCategory,
+                        Description = product.ProductDescription,
+                        Price = (double) product.ProductPrice
+                    }
+                }).ToList();
             
             foreach(Order order in orders)
             {
@@ -131,7 +133,6 @@ namespace StoreDL
                     }
                 }
             }
-            
             return orders;
         }
     }
