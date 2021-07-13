@@ -52,5 +52,21 @@ namespace StoreModels {
                 _price = value;
             } 
         }
+
+        public override string ToString()
+        {
+            string output = $"\n\n----Customer Order----\n" + 
+                            $"|ID: {ID}\n" + 
+                            $"|Location: {Location}\n" + 
+                            $"|Price: {Price}\n" +
+                            $"----------------------\n";
+            
+            foreach(OrderItem item in Items)
+            {
+                output += item.ToString();
+            }
+                            
+            return output;
+        }
     }
 }
