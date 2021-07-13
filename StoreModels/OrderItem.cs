@@ -4,6 +4,7 @@ namespace StoreModels
 {
     public class OrderItem
     {
+        private int _orderID;
         private Product _product;
         private int _quantity;
 
@@ -22,6 +23,16 @@ namespace StoreModels
             }
         }
 
+        public int OrderID {
+            get 
+            {
+                return _orderID;
+            }
+            set 
+            {
+                 _orderID = value;
+            }
+        }
         public int Quantity
         {
             get
@@ -37,8 +48,7 @@ namespace StoreModels
         public override string ToString()
         {
             string output = Product.ToString() +    
-                            $"|Quantity: {Quantity}\n" + 
-                            $"|-------------------------\n";
+                            $"Quantity: {Quantity}\n";
             return output;
         }
     }
