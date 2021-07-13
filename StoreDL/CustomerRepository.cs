@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using StoreModels;
 using System.Linq;
+using System.Data;
 namespace StoreDL
 {
     public class CustomerRepository : ICustomerRepository
@@ -65,21 +66,73 @@ namespace StoreDL
           _context.SaveChanges();
           
 
-        foreach(OrderItem product in p_order.Items)
-        {
-            _context.OrderItems.Add(new StoreDL.Entities.OrderItem()
+            foreach(OrderItem product in p_order.Items)
             {
-                OrderId = customerOrder.OrderId,
-                OrderProductId = product.Product.ID,
-        
-                ItemQuantity = product.Quantity
-            });
+                _context.OrderItems.Add(new StoreDL.Entities.OrderItem()
+                {
+                    OrderId = customerOrder.OrderId,
+                    OrderProductId = product.Product.ID,
+            
+                    ItemQuantity = product.Quantity
+                });
+            }
+
+            _context.SaveChanges();
+
+            Console.WriteLine("Customer Order ID: " + customerOrder.OrderId);
+            return true;
         }
 
-        _context.SaveChanges();
+        public List<StoreModels.Order> GetOrders(int p_customerID)
+        {
+            List<int> orderIDs = new List<int>();
+            List<StoreModels.Order> orders = 
+                        ( from order in _context.Orders 
+                          where (order.CustomerId == p_customerID)
+            select new StoreModels.Order()
+            {
+                Items = new List<OrderItem>(),
+                ID = order.OrderId,
+                Location = order.OrderLocation,
+                Price = (double) order.OrderPrice,
+                
+            }).ToList();
 
-          Console.WriteLine("Customer Order ID: " + customerOrder.OrderId);
-          return true;
+            foreach(StoreModels.Order order in orders)
+            {
+                orderIDs.Add(order.ID);
+            }
+            
+            List<StoreModels.OrderItem> orderItems = 
+                                                    ( from orderItem in _context.OrderItems join product in _context.Products on 
+                                                    orderItem.OrderProductId equals product.ProductId
+                                                    where orderIDs.Contains(orderItem.OrderId)
+                                                    select new StoreModels.OrderItem()
+                                                    {
+                                                        OrderID = orderItem.OrderId, 
+                                                        Quantity = (int) orderItem.ItemQuantity,
+                                                        Product = new Product()
+                                                        {
+                                                            Name = product.ProductName,
+                                                            ID = product.ProductId,
+                                                            Category = product.ProductCategory,
+                                                            Description = product.ProductDescription,
+                                                            Price = (double) product.ProductPrice
+                                                        }
+                                                    }).ToList();
+            
+            foreach(Order order in orders)
+            {
+                foreach(OrderItem orderItem in orderItems)
+                {
+                    if(order.ID == orderItem.OrderID)
+                    {
+                        order.Items.Add(orderItem);
+                    }
+                }
+            }
+            
+            return orders;
         }
     }
 }
