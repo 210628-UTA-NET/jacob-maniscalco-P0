@@ -35,6 +35,9 @@ namespace StoreUI
                     case MenuType.ShowCustomersMenu:
                         menu = menuFactory.GetMenu(MenuType.ShowCustomersMenu);
                         break;
+                    case MenuType.ShowCustomerOrders:
+                        menu = menuFactory.GetMenu(MenuType.ShowCustomerOrders);
+                        break;
                     case MenuType.CreateOrderMenu:
                         menu = menuFactory.GetMenu(MenuType.CreateOrderMenu);
                         break;

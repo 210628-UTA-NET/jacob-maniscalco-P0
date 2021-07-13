@@ -6,6 +6,7 @@ namespace StoreUI
         AddCustomerMenu,
         ShowCustomerMenu,
         ShowCustomersMenu,
+        ShowCustomerOrders,
         CreateOrderMenu,
         StoreMenu,
         StoreInventoryMenu,
