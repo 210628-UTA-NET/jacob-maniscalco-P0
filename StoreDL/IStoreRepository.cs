@@ -32,5 +32,7 @@ namespace StoreDL
         /// <param name="p_storeID"> The store ID</param>
         /// <returns>List of Line Items representing the store's inventory</returns>
         List<StoreModels.LineItem> GetStoreInventory(int p_storeID);
+
+        List<StoreModels.Order> GetOrders(int p_storeID);
     }
 }

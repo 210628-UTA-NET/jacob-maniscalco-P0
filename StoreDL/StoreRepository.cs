@@ -100,5 +100,56 @@ namespace StoreDL
             _context.SaveChanges();
         return LineItems;
         }
+
+        public List<StoreModels.Order> GetOrders(int p_storeID)
+        {
+            
+            List<int> orderIDs = new List<int>();
+
+            List<StoreModels.Order> orders = (from order in _context.Orders  where (order.StoreFrontId == p_storeID)
+                                              select new StoreModels.Order()
+                                              {
+                                                  Items = new List<OrderItem>(),
+                                                  ID = order.OrderId,
+                                                  Location = order.OrderLocation,
+                                                  Price = (double) order.OrderPrice,
+                                                  StoreID = (int) order.StoreFrontId
+
+                                              }).ToList();
+        foreach(StoreModels.Order order in orders)
+        {
+            orderIDs.Add(order.ID);
+        }
+
+        List<StoreModels.OrderItem> orderItems = 
+                ( from orderItem in _context.OrderItems join product in _context.Products on 
+                orderItem.OrderProductId equals product.ProductId
+                where orderIDs.Contains(orderItem.OrderId)
+                select new StoreModels.OrderItem()
+                {
+                    OrderID = orderItem.OrderId, 
+                    Quantity = (int) orderItem.ItemQuantity,
+                    Product = new Product()
+                    {
+                        Name = product.ProductName,
+                        ID = product.ProductId,
+                        Category = product.ProductCategory,
+                        Description = product.ProductDescription,
+                        Price = (double) product.ProductPrice
+                    }
+                }).ToList();
+            
+            foreach(Order order in orders)
+            {
+                foreach(OrderItem orderItem in orderItems)
+                {
+                    if(order.ID == orderItem.OrderID)
+                    {
+                        order.Items.Add(orderItem);
+                    }
+                }
+            }
+            return orders;
+        }
     }
 }
