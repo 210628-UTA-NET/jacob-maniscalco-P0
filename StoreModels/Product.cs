@@ -68,11 +68,12 @@ namespace StoreModels {
 
         public override string ToString()
         {
-            string output = $"|-------------------------\n" +
-                            $"|Name: {Name}\tID: {ID}\n" + 
-                            $"|Description: {Description}\n" +
-                            $"|Category: {Category}\n" +
-                            string.Format("{0:0.00}", $"|Price: {Price}\n");
+            string output = 
+                            $"\nName: {Name}\n" + 
+                            "ID: {ID}\n" + 
+                            $"Description: {Description}\n" +
+                            $"Category: {Category}\n" +
+                            string.Format("{0:0.00}", $"Price: {Price}\n");
 
             return output;
         }
