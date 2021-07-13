@@ -4,6 +4,8 @@ namespace StoreModels {
     public class Order 
     {
         private int _id;
+
+        private int _StoreID;
         private List<OrderItem> _items;
         private string _location;
         private double _price;
@@ -17,6 +19,17 @@ namespace StoreModels {
             set
             {
                 _id = value;
+            }
+        }
+        public int StoreID
+        {
+            get
+            {
+                return _StoreID;
+            }
+            set 
+            {
+                _StoreID = value;
             }
         }
         public List<OrderItem> Items 
