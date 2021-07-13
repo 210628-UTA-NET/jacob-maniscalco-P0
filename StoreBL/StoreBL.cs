@@ -31,5 +31,10 @@ namespace StoreBL
         {
             return _repo.GetStoreInventory(p_StoreID);
         }
+
+        public List<StoreModels.Order> GetOrders(int p_StoreID)
+        {
+            return _repo.GetOrders(p_StoreID);
+        }
     }
 }
