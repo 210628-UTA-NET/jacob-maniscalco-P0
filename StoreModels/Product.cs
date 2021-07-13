@@ -70,7 +70,7 @@ namespace StoreModels {
         {
             string output = 
                             $"\nName: {Name}\n" + 
-                            "ID: {ID}\n" + 
+                            $"ID: {ID}\n" + 
                             $"Description: {Description}\n" +
                             $"Category: {Category}\n" +
                             string.Format("{0:0.00}", $"Price: {Price}\n");
