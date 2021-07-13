@@ -38,11 +38,11 @@ namespace StoreUI
 
                 Console.WriteLine("Enter the Store ID of the store you wish to order from.");
                 userInput = Console.ReadLine();
-                int StoreID = int.Parse(userInput);
+                int storeID = int.Parse(userInput);
                 Console.Clear();
                 //Retrieve store Items and store Front object
-                List<StoreModels.LineItem> storeItems = _storeBL.GetStoreInventory(StoreID);
-                StoreModels.StoreFront store = _storeBL.GetStoreFront(StoreID);
+                List<StoreModels.LineItem> storeItems = _storeBL.GetStoreInventory(storeID);
+                StoreModels.StoreFront store = _storeBL.GetStoreFront(storeID);
                 List<StoreModels.OrderItem> customerOrder = new List<StoreModels.OrderItem>();
 
                 bool cond = true;
@@ -101,6 +101,7 @@ namespace StoreUI
                             Console.WriteLine("Your order has been processed");
                             StoreModels.Order newOrder = new StoreModels.Order()
                             {
+                                StoreID = storeID,
                                 Items = customerOrder,
                                 Location = store.Address,
                                 Price = totalPrice

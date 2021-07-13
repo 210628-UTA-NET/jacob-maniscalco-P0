@@ -6,9 +6,11 @@ namespace StoreUI
     {
         public void menu()
         {
-            Console.WriteLine("[3]Enter a new store.");
-            Console.WriteLine("[2] View a list of stores.");
-            Console.WriteLine("[1] View store inventory");
+            Console.WriteLine("[5]Enter a new store.");
+            Console.WriteLine("[4] View a list of stores.");
+            Console.WriteLine("[3] View store inventory");
+            Console.WriteLine("[2] View store orders.");
+            Console.WriteLine("[1] Replenish Store Inventory");
             Console.WriteLine("[0] Return to main menu.");
         }
 
@@ -18,12 +20,16 @@ namespace StoreUI
 
             switch(userInput)
             {
-                case "3":
+                case "5":
                     return MenuType.AddStoreFrontMenu;
-                case "2":
+                case "4":
                     return MenuType.ShowStoresMenu;
-                case "1":
+                case "3":
                     return MenuType.StoreInventoryMenu;
+                case "2":
+                    return MenuType.ShowStoreOrdersMenu;
+                case "1":
+                    return MenuType.ReplenishStoreInventoryMenu;
                 case "0":
                     return MenuType.MainMenu;
                 default:
