@@ -14,25 +14,28 @@ namespace StoreUI
         public MenuType getChoice()
         {
             string userInput = Console.ReadLine();
-
+            string userID;
             switch(userInput)
             {
+                
                 case "1":
-                    Console.WriteLine("Customer ID: ");
-                    string userID = Console.ReadLine();
+                    do {
+                        Console.Write("Customer ID: ");
+                        userID = Console.ReadLine();
+                        Console.Clear();
+                    } while(!_customerBL.CustomerExists(int.Parse(userID)));
+                    
                     StoreModels.Customer customer = _customerBL.GetCustomer(int.Parse(userID));
                     Console.WriteLine(customer.ToString());
                     Console.WriteLine("[0] Exit");
                     string exit = Console.ReadLine();
                     while (exit != "0")
                     {
+                        Console.Clear();
                         Console.WriteLine("Incorrect Input");
                         Console.WriteLine("[0] Exit");
                         exit = Console.ReadLine();
                     }
-                    return MenuType.AddCustomerMenu;
-
-                case "0":
                     return MenuType.CustomerMenu;
                 default:
                     Console.WriteLine("Incorrect Input");
@@ -42,8 +45,11 @@ namespace StoreUI
 
         public void menu()
         {
-            Console.WriteLine("[1] Enter the customer's ID.");
-            Console.WriteLine("[0] Exit.");
+            Console.WriteLine("---- View Customer Info ----");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("| [1] Enter the customer's ID.");
+            Console.WriteLine("| [0] Exit.");
+            Console.WriteLine("------------------------------");
         }
     }
 }

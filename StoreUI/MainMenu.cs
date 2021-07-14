@@ -49,10 +49,12 @@ namespace StoreUI
             
             ");
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("[3] Enter store menu (add or view list of stores)");
-            Console.WriteLine("[2] Enter the customer menu (add or list customers).");
-            Console.WriteLine("[1] Enter Product Menu");
-            Console.WriteLine("[0] Exit.");
+            Console.WriteLine("---- Main Menu ----");
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("| [3] Enter Store Menu");
+            Console.WriteLine("| [2] Enter Customer Menu");
+            Console.WriteLine("| [1] Exit");
+            Console.WriteLine("-----------------------------------------");
         }
 
         public MenuType getChoice()
@@ -66,8 +68,6 @@ namespace StoreUI
                 case "2":
                     return MenuType.CustomerMenu;
                 case "1":
-                    return MenuType.ProductMenu;
-                case "0":
                     return MenuType.Exit;
                 default:
                     Console.WriteLine("That is not a valid input.");

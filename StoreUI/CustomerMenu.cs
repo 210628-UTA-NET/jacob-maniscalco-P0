@@ -6,14 +6,16 @@ namespace StoreUI
     {
         public void menu()
         {
-            Console.WriteLine("Welcome to the customer menu.");
-            Console.WriteLine("[6] To enter a new customer.");
-            Console.WriteLine("[5] Show all customers.");
-            Console.WriteLine("[4] Find a customer.");
-            Console.WriteLine("[3] Find a customer's order history.");
-            Console.WriteLine("[2] Make an order");
-            Console.WriteLine("[1] Return to main menu.");
-            Console.WriteLine("[0] To exit.");
+            Console.WriteLine("---- Customer Main Menu ----");
+            Console.WriteLine("------------------------------------------------------");
+            Console.WriteLine("| [6] Enter New Customer");
+            Console.WriteLine("| [5] View All Customers");
+            Console.WriteLine("| [4] Find A Customer");
+            Console.WriteLine("| [3] View Order History");
+            Console.WriteLine("| [2] Create An Order");
+            Console.WriteLine("| [1] Return To Main Menu");
+            Console.WriteLine("| [0] Exit");
+            Console.WriteLine("------------------------------------------------------");
         }
 
         public MenuType getChoice()

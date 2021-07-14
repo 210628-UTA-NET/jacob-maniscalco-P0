@@ -6,12 +6,15 @@ namespace StoreUI
     {
         public void menu()
         {
-            Console.WriteLine("[5]Enter a new store.");
-            Console.WriteLine("[4] View a list of stores.");
-            Console.WriteLine("[3] View store inventory");
-            Console.WriteLine("[2] View store orders.");
-            Console.WriteLine("[1] Replenish Store Inventory");
-            Console.WriteLine("[0] Return to main menu.");
+            Console.WriteLine("---- Store Menu ----");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("| [5] Enter a new store.");
+            Console.WriteLine("| [4] View a list of stores.");
+            Console.WriteLine("| [3] View store inventory");
+            Console.WriteLine("| [2] View store orders.");
+            Console.WriteLine("| [1] Replenish Store Inventory");
+            Console.WriteLine("| [0] Return to main menu.");
+            Console.WriteLine("------------------------------");
         }
 
          public MenuType getChoice()

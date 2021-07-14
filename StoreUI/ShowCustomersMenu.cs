@@ -27,13 +27,16 @@ namespace StoreUI
 
         public void menu()
         {
+            Console.WriteLine("---- All Customers ----");
             List<StoreModels.Customer> customers = _customerBL.GetAllCustomers();
             foreach(StoreModels.Customer customer in customers)
             {
                 Console.WriteLine(customer);
             }
-            Console.WriteLine("[1] Return to Customer Menu,");
-            Console.WriteLine("[0] Exit");
+            Console.WriteLine("------------------------------------------------------");
+            Console.WriteLine("| [1] Return to Customer Main Menu");
+            Console.WriteLine("| [0] Exit");
+            Console.WriteLine("------------------------------------------------------");
 
         }
     }

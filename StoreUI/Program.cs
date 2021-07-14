@@ -17,7 +17,7 @@ namespace StoreUI
             {
                 Console.Clear();
                 menu.menu();
-                currMenu= menu.getChoice();
+                currMenu = menu.getChoice();
                 
                 switch(currMenu) {
                     case MenuType.MainMenu: 
@@ -55,6 +55,9 @@ namespace StoreUI
                         break;
                     case MenuType.AddStoreFrontMenu:
                         menu = menuFactory.GetMenu(MenuType.AddStoreFrontMenu);
+                        break;
+                    case MenuType.ReplenishStoreInventoryMenu:
+                        menu = menuFactory.GetMenu(MenuType.ReplenishStoreInventoryMenu);
                         break;
                     case MenuType.ProductMenu:
                         menu = menuFactory.GetMenu(MenuType.ProductMenu);

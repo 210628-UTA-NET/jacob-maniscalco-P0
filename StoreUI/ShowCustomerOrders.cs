@@ -18,7 +18,7 @@ namespace StoreUI
             switch(userInput)
             {
                 case "1":
-                    Console.WriteLine("Enter your user ID: ");
+                    Console.Write("Enter your user ID: ");
                     int userID = int.Parse(Console.ReadLine());
                     Console.Clear();
                     List<StoreModels.Order> customerOrders = _customerBL.GetOrders(userID);
@@ -26,11 +26,15 @@ namespace StoreUI
                     {
                         Console.WriteLine(order);
                     }
-                    Console.WriteLine("Enter 1 to exit.");
-                    string exitInput = Console.ReadLine();
-                    if (exitInput == "1")
-                        return MenuType.CustomerMenu;
-                    else return MenuType.ShowCustomerOrders;
+                    do 
+                    {
+                        Console.WriteLine("Enter 1 to exit.");
+                        userInput = Console.ReadLine();
+                        Console.Clear();
+                    } while(userInput != "1");
+                  
+                    return MenuType.CustomerMenu;
+                    
 
                 case "0":
                     return MenuType.CustomerMenu;
@@ -41,8 +45,11 @@ namespace StoreUI
 
         public void menu()
         {
-            Console.WriteLine("[1] View your order history.");
-            Console.WriteLine("[0] Exit");
+            Console.WriteLine("---- View Customer Orders ----");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("| [1] View your order history.");
+            Console.WriteLine("| [0] Exit");
+            Console.WriteLine("------------------------------");
         }
     }
 }
