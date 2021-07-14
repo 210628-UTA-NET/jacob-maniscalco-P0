@@ -1,6 +1,7 @@
 namespace StoreModels {
     public class LineItem
     {
+        private int _id;
         private Product _product;
         private int _quantity;
 
@@ -19,6 +20,17 @@ namespace StoreModels {
                 _product = value;
             } 
         }
+        public int ID 
+        {
+            get
+            {
+                return _id;
+            }
+            set 
+            {
+                _id = value;
+            }
+        }
         public int Quantity 
         { 
             get
@@ -34,8 +46,10 @@ namespace StoreModels {
         public override string ToString()
         {
             return Product.ToString() + 
-                    $"Quantity: {Quantity}\n" + 
-                    $"|-----------------------\n"; 
+                    $"---- Line Item Information ----\n" +
+                    $"| Line Item ID: {ID}\n" + 
+                    $"| Line Item Quantity: {Quantity}\n" + 
+                    $"--------------------------------\n"; 
         }
     }
 }
