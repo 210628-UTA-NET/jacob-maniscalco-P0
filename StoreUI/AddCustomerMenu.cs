@@ -20,39 +20,15 @@ namespace StoreUI
             {
                 case "4": 
                     Console.Write("Customer Name: ");
-                    try
-                    {
-                        _newCustomer.Name = Console.ReadLine();
-                    }
-                    catch(Exception)
-                    {
-                        Console.WriteLine("Incorrect name format.");
-                        Thread.Sleep(2000);
-                    }
+                    _newCustomer.Name = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "3":
                     Console.Write("Customer Address: ");
-                    try
-                    {
-                        _newCustomer.Address = Console.ReadLine();
-                    }
-                    catch(System.Exception)
-                    {
-                        Console.WriteLine("Incorrect address format.");
-                        Thread.Sleep(2000);
-                    }
+                    _newCustomer.Address = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "2":
                     Console.Write("Customer Phone Number: ");
-                    try 
-                    {
-                        _newCustomer.PhoneNumber = Console.ReadLine();
-                    }
-                    catch(System.Exception)
-                    {
-                        Console.WriteLine("Incorrect phone number format.");
-                        Thread.Sleep(2000);
-                    }
+                    _newCustomer.PhoneNumber = Console.ReadLine();
                     return MenuType.AddCustomerMenu;
                 case "1":
                     // Add logic to add customer to db
@@ -68,12 +44,14 @@ namespace StoreUI
         }
         public void menu()
         {
-            Console.WriteLine("---Add a customer---");
-            Console.WriteLine($"[4] Name: {_newCustomer.Name}");
-            Console.WriteLine($"[3] Address: {_newCustomer.Address}");
-            Console.WriteLine($"[2] Phone Number: {_newCustomer.PhoneNumber}");
-            Console.WriteLine("[1] Add Customer.");
-            Console.WriteLine("[0] Exit to customer menu.");
+            Console.WriteLine("--- Add A Customer ----");
+            Console.WriteLine("------------------------------------------------------");
+            Console.WriteLine($"| [4] Name: {_newCustomer.Name}");
+            Console.WriteLine($"| [3] Address: {_newCustomer.Address}");
+            Console.WriteLine($"| [2] Phone Number: {_newCustomer.PhoneNumber}");
+            Console.WriteLine($"| [1] Add Customer.");
+            Console.WriteLine($"| [0] Exit to customer menu.");
+            Console.WriteLine("------------------------------------------------------");
         }
     }
 }
