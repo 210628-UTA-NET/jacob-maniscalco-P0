@@ -68,11 +68,13 @@ namespace StoreModels {
 
         public override string ToString()
         {
-            string output = $"\n\n----Customer Order----\n" + 
+            string output = $"-------------------------\n" +
+                            $"|---- Customer Order ----\n" + 
+                            $"-------------------------\n" +
                             $"|ID: {ID}\n" + 
                             $"|Location: {Location}\n" + 
                             $"|Price: {Price}\n" +
-                            $"----------------------\n";
+                            $"----------------------\n\n";
             
             foreach(OrderItem item in Items)
             {
