@@ -9,6 +9,7 @@ namespace StoreDL.Entities
     {
         public Product()
         {
+            LineItems = new HashSet<LineItem>();
             OrderItems = new HashSet<OrderItem>();
         }
 
@@ -18,6 +19,7 @@ namespace StoreDL.Entities
         public string ProductCategory { get; set; }
         public decimal? ProductPrice { get; set; }
 
+        public virtual ICollection<LineItem> LineItems { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

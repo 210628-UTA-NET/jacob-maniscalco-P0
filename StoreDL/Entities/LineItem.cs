@@ -7,6 +7,7 @@ namespace StoreDL.Entities
 {
     public partial class LineItem
     {
+        public int LineItemId { get; set; }
         public int? StoreFrontId { get; set; }
         public int? LineItemProductId { get; set; }
         public int? ItemQuantity { get; set; }

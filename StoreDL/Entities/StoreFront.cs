@@ -9,6 +9,7 @@ namespace StoreDL.Entities
     {
         public StoreFront()
         {
+            LineItems = new HashSet<LineItem>();
             Orders = new HashSet<Order>();
         }
 
@@ -16,6 +17,7 @@ namespace StoreDL.Entities
         public string StoreFrontName { get; set; }
         public string StoreFrontAddress { get; set; }
 
+        public virtual ICollection<LineItem> LineItems { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }
