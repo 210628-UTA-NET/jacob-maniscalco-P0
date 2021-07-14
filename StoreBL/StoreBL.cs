@@ -36,5 +36,23 @@ namespace StoreBL
         {
             return _repo.GetOrders(p_StoreID);
         }
+
+        public bool addInventory(int p_storeID, int p_lineItemID, int p_Quantity)
+        {
+            return _repo.addInventory(p_storeID, p_lineItemID, p_Quantity);
+        }
+         public bool removeInventory(int p_storeID, int p_lineItemID, int p_Quantity)
+         {
+             return _repo.removeInventory(p_storeID, p_lineItemID, p_Quantity);
+         }
+         public StoreModels.LineItem GetLineItem(int p_storeID, int p_lineItemID)
+         {
+             return _repo.GetLineItem(p_storeID, p_lineItemID);
+         }
+
+         public bool StoreExists(int p_storeID)
+         {
+             return _repo.StoreExists(p_storeID);
+         }
     }
 }
