@@ -135,5 +135,11 @@ namespace StoreDL
             }
             return orders;
         }
+
+        public bool customerExists(int p_customerID)
+        {
+            return (from customer in _context.Customers where customer.CustomerId == p_customerID select customer).Any();
+            
+        }
     }
 }

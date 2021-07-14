@@ -12,5 +12,7 @@ namespace StoreDL
         bool AddOrder(StoreModels.Order p_order, int p_customerID);
 
         List<StoreModels.Order> GetOrders(int p_customerID);
+
+        bool customerExists(int p_customerID);
     }
 }
