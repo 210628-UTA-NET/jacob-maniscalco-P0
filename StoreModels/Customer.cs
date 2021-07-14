@@ -32,14 +32,7 @@ namespace StoreModels {
             }
             set
             {
-                if(!Regex.IsMatch(value, @"^[A-za-z ,.'-]+$"))
-                {
-                    throw new System.Exception("Incorrect name format");
-                }
-                else
-                {
-                    _name = value;
-                }
+                _name = value;
             } 
         }
         public string Address 
@@ -51,10 +44,6 @@ namespace StoreModels {
             
             set
             {
-                if(!Regex.IsMatch(value, @"^[\d{1-5}\sA-Za-z0-9\.\-]+$"))
-                {
-                    throw new System.Exception("Incorrect address format.");
-                }
                 _address = value;
             } 
         }
@@ -87,10 +76,12 @@ namespace StoreModels {
 
         public override string ToString()
         {
-            string output = $"Name: {Name}\n" +
-                            $"ID: {ID}\n" + 
-                            $"Address: {Address}\n" +
-                            $"Phone Number: {PhoneNumber}\n";
+            string output = "-----------------------------\n" + 
+                            $"| Name: {Name}\n" +
+                            $"| ID: {ID}\n" + 
+                            $"| Address: {Address}\n" +
+                            $"| Phone Number: {PhoneNumber}\n" + 
+                            "-----------------------------\n";
             return output;
         }
     }
