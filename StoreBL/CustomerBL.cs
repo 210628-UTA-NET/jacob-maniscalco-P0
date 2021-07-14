@@ -34,5 +34,10 @@ namespace StoreBL
         {
             return _repo.GetOrders(p_customerID);
         }
+
+        public bool CustomerExists(int p_customerID)
+        {
+            return _repo.customerExists(p_customerID);
+        }
     }
 }
